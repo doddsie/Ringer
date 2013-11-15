@@ -1,0 +1,3 @@
+DEBUG = False
+DEFAULT_FROM_EMAIL = 'thedoddsie@gmail.com'
+TEMPLATE_DIRS = ('/Users/ddodd/templates' )
