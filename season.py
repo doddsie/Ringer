@@ -1,7 +1,7 @@
 __author__ = 'ddodd'
 
 
-import parser.SeasonParser
+import parser.season
 import model.db
 
 
@@ -46,7 +46,7 @@ def enter_season(season):
                 insertStmnt = "INSERT INTO player VALUES (%s, %s, %s, '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s')" % (season.seasonId, division.divisionId, team.teamId, player.name, firstname, lastname, middle, player.number, player.gamesPlayed, player.goals, player.assists, player.points, player.average )
                 cursor.execute(insertStmnt)
 
-    cursor.close()
+
 
 
 
@@ -59,12 +59,12 @@ if __name__ == '__main__':
 
 
 #    season = parser.SeasonParser.parseSeason("Winter 2012-2013" , "file:///Users/ddodd/PycharmProjects/RingerFinder/test/sampleLeague")
-    season = parser.SeasonParser.parseSeason("Winter 2013-2014" , "http://stats.liahl.org/display-stats.php?league=1")
+    season = parser.season.parseSeason("Winter 2013-2014" , "http://stats.liahl.org/display-stats.php?league=1")
 #http://stats.liahl.org/display-stats.php?league=1
 
     enter_season(season)
 
-    season = parser.SeasonParser.parseSeason("Winter 2012-2013" , "http://stats.liahl.org/display-stats.php?league=1&season=25")
+    season = parser.season.parseSeason("Winter 2012-2013" , "http://stats.liahl.org/display-stats.php?league=1&season=25")
     enter_season(season)
 
 

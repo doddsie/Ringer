@@ -90,6 +90,7 @@ def getTeams(seasonId):
 
 
 def getRingers(seasonId, minAverage):
+    global uniqueRingers
     cursor = db.getCursor()
 
     teams = getTeams(seasonId)
@@ -158,7 +159,7 @@ def getRingers(seasonId, minAverage):
     return ringers
 
 if __name__ == '__main__':
-    ringers = getRingers(25, 1.75)
+    ringers = getRingers(27, 1.75)
     for ringer in ringers:
         if (ringer.leveldiff > 3):
             print "Ringer: %s leveldiff %s" % (ringer.name,  ringer.leveldiff)

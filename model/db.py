@@ -9,6 +9,7 @@ conn = None
 def dropDb():
     try:
         db = open(dbFile, "r")
+
         db.close()
         os.remove(dbFile)
     except IOError:
@@ -18,14 +19,18 @@ def _getConnection():
     global conn
 
     if conn == None:
+        print os.path.abspath(dbFile)
+
         conn = sqlite3.connect('hockey.db')
 
     return conn
 
 def closeConnection():
+    global conn
     if conn != None:
         conn.commit()
         conn.close()
+    conn = None
 
 def getCursor():
     return _getConnection().cursor()

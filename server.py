@@ -31,9 +31,10 @@ app = Flask(__name__)
 @app.route("/")
 def home():
 
-    ringers = getRingers(25, 2.00)
-    teams = getTeams(25)
-    divisions = getDivisions(25)
+    seasonId = 27
+    ringers = getRingers(seasonId, 2.00)
+    teams = getTeams(seasonId)
+    divisions = getDivisions(seasonId)
     seasons = getSeasons()
     output = ""
 

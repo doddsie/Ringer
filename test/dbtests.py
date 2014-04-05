@@ -42,6 +42,28 @@ class DBTests(unittest.TestCase):
         cursor.close()
         db.closeConnection()
 
+    def testShowRows(self):
+        cursor = db.getCursor()
+
+        #db.removeSeason(27)
+        # Print the table contents
+        for row in cursor.execute("select *  from season"):
+            print row
+
+        # Print the table contents
+        for row in cursor.execute("select *  from division"):
+            print row
+
+        # Print the table contents
+        for row in cursor.execute("select *  from team "):
+            print row
+
+        # Print the table contents
+        for row in cursor.execute("select *  from player "):
+            print row
+
+        cursor.close()
+        db.closeConnection()
 
 
 if __name__ == '__main__':
